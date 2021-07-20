@@ -1,5 +1,5 @@
 application:
-  name: biot-validator-config
+  name: svs
   component: jar
   image: biot-validator-config-docker
   version: set-me-through-deploy-parameters
