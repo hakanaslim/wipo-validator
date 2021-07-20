@@ -7,7 +7,7 @@ pipelineBuild {
   ]
 
   helm = [[
-        dir: 'biot-valid-config',
+        dir: 'svs',
         publish : true
   	]]
 
