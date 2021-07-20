@@ -1,7 +1,7 @@
 application:
   name: svs
   component: jar
-  image: biot-validator-config-docker
+  image: svs-docker
   version: set-me-through-deploy-parameters
 
 imageRegistry: containerhub.internal.epo.org:6666
@@ -11,7 +11,7 @@ instance: default
 component:
   biotValidatorConfigService:
     name: "service"
-    image: "biot-validator-docker"
+    image: "svs-docker"
     env: []
     replicas: 1
     requests:
