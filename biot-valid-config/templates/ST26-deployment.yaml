@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "application.fullname" . }}
+  {{- include "helper.labels" . | nindent 2 }}
+spec:
+  selector:
+    matchLabels:
+      app: "{{ .Values.application.name }}"
+      component: "{{ .Values.component.biotValidatorConfigService.name }}"
+      instance: "{{ .Values.instance }}"
+  replicas: {{ .Values.replicas.min }}
+  template:
+    metadata:
+      {{- include "helper.labels" . | nindent 6 }}
+    spec:
+      containers:
+      - name: {{ .Values.application.name }}
+        image: {{ .Values.imageRegistry }}/{{ .Values.application.image }}:{{ .Values.application.version }}
+        securityContext:
+          runAsUser: 505
+        ports:
+        - containerPort: 8080
+          name: {{ .Values.application.name }}-svc-port
+          protocol: TCP
+        livenessProbe:
+          httpGet:
+            path: /swagger-resources
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 20
+          periodSeconds: 5
+          failureThreshold: 20
+        readinessProbe:
+          httpGet:
+            path: /swagger-resources
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 20
+          periodSeconds: 5
+        resources:
+          requests:
+            cpu: "{{ .Values.resources.requests.cpu }}"
+            memory: "{{ .Values.resources.requests.memory }}"
+          limits:
+            cpu: "{{ .Values.resources.limits.cpu }}"
+            memory: "{{ .Values.resources.limits.memory }}"

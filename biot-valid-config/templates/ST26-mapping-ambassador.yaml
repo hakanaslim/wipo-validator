@@ -1,0 +1,14 @@
+apiVersion: getambassador.io/v2
+kind:  Mapping
+metadata:
+  name: {{ .Release.Namespace }}-{{ include "application.fullname" . }}
+  {{- include "helper.labels" . | nindent 2 }}
+spec:
+  prefix: {{ include "application.path" . }}
+  rewrite: /
+  timeout_ms: 90000
+  service: {{ include "application.fullname" . }}.{{ .Release.Namespace }}
+  # Especially for OpenAPI 3.0 this is needed as it allows
+  # to have a proper path in the generated API
+  add_request_headers:
+    x-forwarded-prefix: {{ include "application.path" . }}
