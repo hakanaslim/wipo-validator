@@ -1,8 +1,8 @@
 apiVersion: v1
-name: "biot-valid-config"
+name: "svs"
 version: "1.0.0"
 sources:
-  - "https://bitbucket-p.internal.epo.org/scm/biot/biot-validator-config.git"
+  - "https://bitbucket-p.internal.epo.org/scm/biot/svs.git"
 description: "biot-config"
 icon: "https://www.epo.org/favicon.ico"
 keywords:

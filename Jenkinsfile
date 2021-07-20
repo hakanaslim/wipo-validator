@@ -17,10 +17,9 @@ pipelineBuild {
 
   deployments = [
       namespace : "biot",
-
       managed : [
-          gitRepo      : 'ssh://bitbucket-p.internal.epo.org/scm/biot/biot-validator-config.git',
-          valuesPath   : 'biot-validator-config',
+          gitRepo      : 'ssh://bitbucket-p.internal.epo.org/scm/biot/svs.git',
+          valuesPath   : 'svs',
           branches: [
             'master': [
                 [
