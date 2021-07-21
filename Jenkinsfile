@@ -18,8 +18,8 @@ pipelineBuild {
   deployments = [
       namespace : "biot",
       managed : [
-          gitRepo      : 'ssh://git@bitbucket-p.internal.epo.org:7999/biot/svs.git',
-          valuesPath   : 'svs',
+          gitRepo      : 'ssh://git@bitbucket-p.internal.epo.org:7999/kd/biot.git',
+          valuesPath   : 'biot-wipo',
           branches: [
             'master': [
                 [
