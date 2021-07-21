@@ -6,10 +6,10 @@ pipelineBuild {
      dir: "docker",
   ]
 
-  helm = [[
+  helm = [
         dir: 'svs',
         publish : true
-  	]]
+  	]
 
   staticAnalysis = [
     enabled: []
