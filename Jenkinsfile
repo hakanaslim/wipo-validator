@@ -2,7 +2,7 @@
 pipelineBuild {
 
   docker = [
-     imageName: "biot-validator-config-docker",
+     imageName: "svs-docker",
      dir: "docker",
   ]
 
