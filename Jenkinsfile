@@ -19,7 +19,7 @@ pipelineBuild {
       namespace : "biot",
       managed : [
           gitRepo      : 'ssh://git@bitbucket-p.internal.epo.org:7999/kd/biot.git',
-          valuesPath   : 'biot-wipo',
+          valuesPath   : 'wipo',
           branches: [
             'master': [
                     clusterName   : 'endurance',

@@ -3,11 +3,11 @@ name: "svs"
 version: "1.0.0"
 sources:
   - "https://bitbucket-p.internal.epo.org/scm/biot/svs.git"
-description: "biot"
+description: "wipo"
 icon: "https://www.epo.org/favicon.ico"
 keywords:
   - "biot"
 maintainers:
-  - name: "Petru Pinta"
+  - name: "Florin Pinta"
     email: "ppinta.external@epo.org"
 
