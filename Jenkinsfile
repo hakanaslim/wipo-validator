@@ -22,12 +22,10 @@ pipelineBuild {
           valuesPath   : 'biot-wipo',
           branches: [
             'master': [
-                [
                     clusterName   : 'endurance',
                     instance      : "master",
                     targetRevision: '${env.GIT_COMMIT}',
                     helmParameters: ['application.version=${env.PROJECT_VERSION}']
-                ]
             ]
           ]
       ]
