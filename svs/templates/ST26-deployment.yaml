@@ -46,8 +46,8 @@ spec:
             memory: "{{ .Values.resources.limits.memory }}"
           volumeMounts:
             - mountPath: "/C:/pvc"
-              name: wipo-validator-pvc
+            name: wipo-validator-pvc
           volumes:
-              - name: wipo-validator-pvc
-                persistentVolumeClaim:
-                  claimName: recordstore-pvc.yaml
+            - name: wipo-validator-pvc
+            persistentVolumeClaim:
+            claimName: recordstore-pvc.yaml
