@@ -44,3 +44,10 @@ spec:
           limits:
             cpu: "{{ .Values.resources.limits.cpu }}"
             memory: "{{ .Values.resources.limits.memory }}"
+          volumeMounts:
+            - mountPath: "/C:/pvc"
+              name: wipo-validator-pvc
+          volumes:
+              - name: wipo-validator-pvc
+                persistentVolumeClaim:
+                  claimName: recordstore-pvc.yaml
