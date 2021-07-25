@@ -50,4 +50,4 @@ spec:
           volumes:
             - name: wipo-validator-pvc
           persistentVolumeClaim:
-            claimName: recordstore-pvc
+            claimName: "recordstore-pvc"
