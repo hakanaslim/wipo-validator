@@ -22,13 +22,13 @@ spec:
         image: {{ .Values.imageRegistry }}/{{ .Values.application.image }}:{{ .Values.application.version }}
         securityContext:
           runAsUser: 505
-        volumeMounts:
-          - mountPath: "/C:/pvc"
-          name: wipo-validator-pvc
         ports:
         - containerPort: 8080
           name: {{ .Values.application.name }}-svc-port
           protocol: TCP
+        volumeMounts:
+          - mountPath: "/C:/pvc"
+          name: wipo-validator-pvc
         livenessProbe:
           httpGet:
             path: /swagger-resources
