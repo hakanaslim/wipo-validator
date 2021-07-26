@@ -12,12 +12,17 @@ spec:
   template:
     metadata:
       {{- include "helper.labels" . | nindent 6 }}
+    volumes:
+      - name: wipo-validator-pvc
     spec:
       containers:
       - name: {{ .Values.application.name }}
         image: {{ .Values.imageRegistry }}/{{ .Values.application.image }}:{{ .Values.application.version }}
         securityContext:
           runAsUser: 505
+        volumeMounts:
+          - mountPath: "/C:/pvc"
+          name: wipo-validator-pvc
         ports:
         - containerPort: 8080
           name: {{ .Values.application.name }}-svc-port
@@ -44,10 +49,5 @@ spec:
           limits:
             cpu: "{{ .Values.resources.limits.cpu }}"
             memory: "{{ .Values.resources.limits.memory }}"
-          volumeMounts:
-            - mountPath: "/C:/pvc"
-            name: wipo-validator-pvc
-          volumes:
-            - name: wipo-validator-pvc
           persistentVolumeClaim:
             claimName: recordstore-pvc
