@@ -14,6 +14,8 @@ spec:
       {{- include "helper.labels" . | nindent 6 }}
     volumes:
       - name: wipo-validator-pvc
+        persistentVolumeClaim:
+          claimName: <name-of-created-pvc>
     spec:
       containers:
       - name: {{ .Values.application.name }}
