@@ -12,6 +12,8 @@ spec:
   template:
     metadata:
       {{- include "helper.labels" . | nindent 6 }}
+    volumes:
+      - name: wipo-validator-pvc
     spec:
       containers:
       - name: {{ .Values.application.name }}
