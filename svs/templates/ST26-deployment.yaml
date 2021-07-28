@@ -20,10 +20,6 @@ spec:
       containers:
       - name: {{ .Values.application.name }}
         image: {{ .Values.imageRegistry }}/{{ .Values.application.image }}:{{ .Values.application.version }}
-        ports:
-        - containerPort: 8080
-          name: {{ .Values.application.name }}-svc-port
-          protocol: TCP
         volumeMounts:
         - mountPath: "svs/template"
           name: wipo-validator-pvc
