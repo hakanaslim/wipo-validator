@@ -22,9 +22,6 @@ spec:
         image: {{ .Values.imageRegistry }}/{{ .Values.application.image }}:{{ .Values.application.version }}
         ports:
         - containerPort: 8080
-        volumeMounts:
-        - mountPath: "svs/template"
-          name: biot-wipo-pvc
         resources:
           requests:
             cpu: "{{ .Values.resources.requests.cpu }}"
@@ -32,3 +29,6 @@ spec:
           limits:
             cpu: "{{ .Values.resources.limits.cpu }}"
             memory: "{{ .Values.resources.limits.memory }}"
+      volumeMounts:
+        - mountPath: "svs/template"
+          name: biot-wipo-pvc
