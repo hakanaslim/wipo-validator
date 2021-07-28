@@ -2,7 +2,7 @@
 labels:
   labels:
     app: "{{ .Values.application.name }}"
-    component: "{{ .Values.component.biotValidatorConfigService.name }}"
+    component: "{{ .Values.component.biotWipo.name }}"
     instance: "{{ .Values.instance }}"
     version: "{{ .Values.application.version }}"
 

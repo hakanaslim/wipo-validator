@@ -9,7 +9,7 @@ imageRegistry: containerhub.internal.epo.org:6666
 instance: default
 
 component:
-  biotValidatorConfigService:
+  biotWipo:
     name: "service"
     image: "svs-docker"
     env: []
