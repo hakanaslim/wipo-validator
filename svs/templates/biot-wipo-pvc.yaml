@@ -3,7 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
     name: "{{.Release.Namespace}}-{{.Chart.Name}}-pvc"
     labels:
-        app: biot-wipo-validator
+        app: biot-wipo
         cleanup: "{{.Release.Namespace}}-{{.Chart.Name}}-pvc"
 spec:
   accessModes:
@@ -11,5 +11,5 @@ spec:
   volumeMode: Filesystem
   resources:
     requests:
-      storage: {{Values.storage.size}}
+      storage: 1Gi
   storageClassName: nfs-client
