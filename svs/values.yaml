@@ -19,9 +19,6 @@ component:
       memory: 8Gi
     storage: 8Gi
 
-
-
-
 resources:
   requests:
     cpu: "100m"
