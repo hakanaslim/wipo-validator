@@ -27,7 +27,7 @@ spec:
           name: {{ .Values.application.name }}-svc-port
           protocol: TCP
         volumeMounts:
-        - mountPath: "/C:/pvc"
+        - mountPath: "svs/template"
           name: wipo-validator-pvc
         livenessProbe:
           httpGet:
