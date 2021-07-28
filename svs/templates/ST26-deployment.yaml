@@ -15,7 +15,7 @@ spec:
     volumes:
       - name: wipo-validator-pvc
         persistentVolumeClaim:
-          claimName: <name-of-created-pvc>
+          claimName: biot-wipo-pvc
     spec:
       containers:
       - name: {{ .Values.application.name }}
