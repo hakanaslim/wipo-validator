@@ -12,10 +12,6 @@ spec:
   template:
     metadata:
       {{- include "helper.labels" . | nindent 6 }}
-    volumes:
-      - name: wipo-validator-pvc
-        persistentVolumeClaim:
-          claimName: biot-wipo-pvc
     spec:
       containers:
       - name: {{ .Values.application.name }}
@@ -36,3 +32,7 @@ spec:
           limits:
             cpu: "{{ .Values.resources.limits.cpu }}"
             memory: "{{ .Values.resources.limits.memory }}"
+      volumes:
+        - name: wipo-validator-pvc
+          persistentVolumeClaim:
+            claimName: biot-wipo-pvc
