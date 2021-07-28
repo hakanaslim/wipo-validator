@@ -20,9 +20,7 @@ component:
     storage: 8Gi
 
 
-replicas:
-  min: 1
-  max: 2
+
 
 resources:
   requests:
@@ -32,13 +30,6 @@ resources:
     cpu: '1'
     memory: "1024Mi"
 
-service:
-  type: ClusterIP
-  name: http
-  port: 80
-  targetPort: 8080
-
-  proxy:
-    http_proxy: http://proxylb.internal.epo.org:8080
-    https_proxy: http://proxylb.internal.epo.org:8080
-    no_proxy: localhost,127.0.0.1,192.168.*,10.*,*.internal.epo.org
+replicas:
+  min: 1
+  max: 2
