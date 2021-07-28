@@ -16,8 +16,6 @@ spec:
       containers:
       - name: {{ .Values.application.name }}
         image: {{ .Values.imageRegistry }}/{{ .Values.application.image }}:{{ .Values.application.version }}
-        securityContext:
-          runAsUser: 505
         ports:
         - containerPort: 8080
           name: {{ .Values.application.name }}-svc-port

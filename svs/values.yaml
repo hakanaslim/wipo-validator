@@ -13,11 +13,11 @@ component:
     replicas: 1
     requests:
       cpu: 2
-      memory: 4Gi
+      memory: 2Gi
     limits:
       cpu: 8
-      memory: 16Gi
-    storage: 16Gi
+      memory: 8Gi
+    storage: 8Gi
 
 
 replicas:
