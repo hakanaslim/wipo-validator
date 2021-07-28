@@ -24,7 +24,7 @@ spec:
         - containerPort: 8080
         volumeMounts:
         - mountPath: "svs/template"
-          name: wipo-validator-pvc
+          name: biot-wipo-pvc
         resources:
           requests:
             cpu: "{{ .Values.resources.requests.cpu }}"
