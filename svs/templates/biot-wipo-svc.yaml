@@ -8,4 +8,3 @@ spec:
     app: "{{ .Values.application.name }}"
     component: "{{ .Values.application.component }}"
     instance: "{{ .Values.instance }}"
-      targetPort: {{ .Values.service.targetPort }}
