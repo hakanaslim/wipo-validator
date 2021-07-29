@@ -30,5 +30,5 @@ spec:
             cpu: "{{ .Values.resources.limits.cpu }}"
             memory: "{{ .Values.resources.limits.memory }}"
       volumeMounts:
-        - mountPath: "helm/templates"
+        - mountPath: "svs/templates"
           name: biot-wipo-pvc
