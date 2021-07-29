@@ -8,6 +8,7 @@ spec:
     app: "{{ .Values.application.name }}"
     component: "{{ .Values.application.component }}"
     instance: "{{ .Values.instance }}"
+  type: {{ .Values.service.type }}
   ports:
     - name: {{ .Values.service.name }}
       port: {{ .Values.service.port }}
