@@ -7,7 +7,7 @@ pipelineBuild {
   ]
 
   helm = [
-        dir: 'helm',
+        dir: 'svs',
         publish : true
   	]
 
