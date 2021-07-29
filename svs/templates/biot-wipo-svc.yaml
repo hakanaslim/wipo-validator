@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: {{ include "application.fullname" . }}
+  {{- include "helper.labels" . | nindent 2 }}
+spec:
+  selector:
+    app: "{{ .Values.application.name }}"
+    component: "{{ .Values.application.component }}"
+    instance: "{{ .Values.instance }}"
+  type: {{ .Values.service.type }}
+  ports:
+    - name: {{ .Values.service.name }}
+      port: {{ .Values.service.port }}
+      targetPort: {{ .Values.service.targetPort }}
