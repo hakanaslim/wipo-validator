@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: "{{.Release.Namespace}}-{{.Chart.Name}}-pvc"
+  name: "biot-wipo-pvc"
     labels:
       app: biot-wipo
-      cleanup: "{{.Release.Namespace}}-{{.Chart.Name}}-pvc"
+      cleanup: "biot-wipo-pvc"
 spec:
   accessModes:
     - ReadWriteMany
