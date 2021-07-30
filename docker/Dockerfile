@@ -5,8 +5,6 @@ ADD resources/wipo-sequence-validator.jar /
 ADD resources/start.sh /
 RUN chmod 777 /*.sh
 RUN apk add curl
-RUN apk add iputils
-RUN apk add vim
 
 EXPOSE 8080
 
