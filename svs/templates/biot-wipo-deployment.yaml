@@ -12,24 +12,23 @@ spec:
   template:
     metadata:
       {{- include "helper.labels" . | nindent 6 }}
-
-    volumeMounts:
-      - mountPath: svs/templates
-        name: storage
-    volumes:
-      - name: storage
-        persistentVolumeClaim:
-          claimName: biot-wipo-pvc
     spec:
       containers:
-      - name: {{ .Values.application.name }}
-        image: {{ .Values.imageRegistry }}/{{ .Values.application.image }}:{{ .Values.application.version }}
-        ports:
-        - containerPort: 8080
-        resources:
-          requests:
-            cpu: "{{ .Values.resources.requests.cpu }}"
-            memory: "{{ .Values.resources.requests.memory }}"
-          limits:
-            cpu: "{{ .Values.resources.limits.cpu }}"
-            memory: "{{ .Values.resources.limits.memory }}"
+        - name: {{ .Values.application.name }}
+          image: {{ .Values.imageRegistry }}/{{ .Values.application.image }}:{{ .Values.application.version }}
+          ports:
+              - containerPort: 8080
+          volumeMounts:
+            - name: storage
+              mountPath: svs/templates
+          resources:
+            requests:
+              cpu: "{{ .Values.resources.requests.cpu }}"
+              memory: "{{ .Values.resources.requests.memory }}"
+            limits:
+              cpu: "{{ .Values.resources.limits.cpu }}"
+              memory: "{{ .Values.resources.limits.memory }}"
+      volumes:
+        - name: storage
+          persistentVolumeClaim:
+            claimName: biot-wipo-pvc
