@@ -1,6 +1,5 @@
 {{- define "helper.labels" -}}
 labels:
-  labels:
     app: "{{ .Values.application.name }}"
     component: "{{ .Values.component.biotWipo.name }}"
     instance: "{{ .Values.instance }}"
