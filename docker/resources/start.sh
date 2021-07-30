@@ -5,4 +5,4 @@ _JVM_PROXY_SETTINGS='-Dhttp.proxyHost=proxylb.internal.epo.org -Dhttp.proxyPort=
 _JVM_ARGS=''
 _JVM_SECURITY=''
 
-/usr/bin/java $EXTRA_JAVA_OPTS $_JVM_ARGS $_JVM_PROXY_SETTINGS $_JVM_SECURITY $*
+/usr/bin/java $_JVM_PROXY_SETTINGS $_JVM_SECURITY $*
