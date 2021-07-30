@@ -5,4 +5,4 @@ USER root
 ADD resources/wipo-sequence-validator.jar /
 
 EXPOSE 8080
-ENTRYPOINT ["/start.sh", "-jar", "${result.service.jar}"]
+ENTRYPOINT ["/start.sh", "-jar", "${result.service}"]
