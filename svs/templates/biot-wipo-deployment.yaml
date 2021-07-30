@@ -8,7 +8,7 @@ spec:
       app: "{{ .Values.application.name }}"
       component: "{{ .Values.component.biotWipo.name }}"
       instance: "{{ .Values.instance }}"
-  replicas: {{ .Values.replicas.dev }}
+  replicas: {{ .Values.replicas.min }}
   template:
     metadata:
       {{- include "helper.labels" . | nindent 6 }}

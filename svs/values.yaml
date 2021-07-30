@@ -27,4 +27,4 @@ resources:
     memory: "1024Mi"
 
 replicas:
-  dev: 1
+  min: 1
