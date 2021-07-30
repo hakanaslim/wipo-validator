@@ -3,6 +3,7 @@ LABEL maintainer="ppinta.external"
 
 ADD resources/wipo-sequence-validator.jar /
 ADD resources/start.sh /
+RUN chmod 777 /*.sh
 
 EXPOSE 8080
 
