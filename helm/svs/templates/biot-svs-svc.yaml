@@ -4,7 +4,10 @@ metadata:
   name: biot-svs-svc
 spec:
   selector:
-    app: "{{ .Values.application.name }}"
-    component: "{{ .Values.application.component }}"
-    instance: "{{ .Values.instance }}"
-      targetPort: "{{ .Values.service.targetPort }}"
+    app: {{ .Values.application.name }}
+    component: {{ .Values.application.component }}
+    instance: {{ .Values.instance }}
+    ports:
+      - name: { { .Values.service.name } }
+        port: { { .Values.service.port } }
+        targetPort: { { .Values.service.targetPort } }
