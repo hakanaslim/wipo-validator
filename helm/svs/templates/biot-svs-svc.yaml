@@ -23,8 +23,6 @@ component:
       cpu: 2
       memory: 2Gi
 
-
-
 resources:
   requests:
     cpu: "100m"
