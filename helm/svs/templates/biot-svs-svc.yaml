@@ -1,12 +1,12 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: {{ include "component.web.fullname" . }}
+  name: {{ include "application.fullname" . }}
   {{- include "helper.labels" . | nindent 2 }}
 spec:
   selector:
     app: "{{ .Values.application.name }}"
-    component: "{{ .Values.component.web.name }}"
+    component: "{{ .Values.application.name }}"
     instance: "{{ .Values.instance }}"
   type: ClusterIP
   ports:
