@@ -9,4 +9,4 @@ _JVM_SECURITY='-Djava.security.auth.login.config=/etc/krb/login.conf -Djava.secu
 _JVM_PROXY_SETTINGS='-Dhttp.proxyHost=proxylb.internal.epo.org -Dhttp.proxyPort=8080 -Dhttps.proxyHost=proxylb.internal.epo.org -Dhttps.proxyPort=8080 -Dhttp.nonProxyHosts=localhost|127.0.0.1|*.local|*.internal.epo.org'
 _JVM_TIMEZONE='-Duser.timezone=Europe/Amsterdam'
 
-/usr/bin/java $*
+/usr/bin/java $_JVM_PROXY_SETTINGS $*
