@@ -28,3 +28,9 @@ resources:
 
 replicas:
   min: 1
+
+service:
+  type: ClusterIP
+  name: http
+  port: 80
+  targetPort: 8080
