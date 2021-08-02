@@ -1,7 +1,7 @@
 apiVersion: getambassador.io/v2
 kind:  Mapping
 metadata:
-  name: biot-wipo-ambasador
+  name: biot-svs-ambasador
 spec:
   prefix: {{ include "application.path" . }}
   rewrite: /

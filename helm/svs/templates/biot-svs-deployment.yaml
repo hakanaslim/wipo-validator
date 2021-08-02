@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name:  biot-wipo-deplyment
+  name:  biot-svs-deplyment
 spec:
   selector:
     matchLabels:
@@ -20,7 +20,7 @@ spec:
               - containerPort: 8080
           volumeMounts:
             - name: storage
-              mountPath: svs/templates
+              mountPath: helm/svs/templates
           resources:
             requests:
               cpu: "{{ .Values.resources.requests.cpu }}"

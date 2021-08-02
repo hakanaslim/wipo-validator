@@ -1,7 +1,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: biot-wipo-svc
+  name: biot-svs-svc
 spec:
   selector:
     app: "{{ .Values.application.name }}"
