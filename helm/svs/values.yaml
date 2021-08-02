@@ -1,6 +1,5 @@
 application:
   name: svs
-  component: jar
   image: svs-docker
   version: set-me-through-deploy-parameters
 imageRegistry: containerhub.internal.epo.org:6666
