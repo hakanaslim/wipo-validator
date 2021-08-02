@@ -28,6 +28,21 @@ spec:
             limits:
               cpu: "{{ .Values.resources.limits.cpu }}"
               memory: "{{ .Values.resources.limits.memory }}"
+          livenessProbe:
+            httpGet:
+              path: { { include "application.path" . } }actuator/health
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            failureThreshold: 20
+          readinessProbe:
+            httpGet:
+              path: { { include "application.path" . } }actuator/health
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 15
+            periodSeconds: 10
       volumes:
         - name: storage
           persistentVolumeClaim:
