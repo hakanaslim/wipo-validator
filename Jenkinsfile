@@ -23,7 +23,7 @@ pipelineBuild {
           branches: [
             'master': [
                     clusterName   : 'endurance',
-                    instance      : "master",
+                    instance      : "test",
                     targetRevision: '${env.GIT_COMMIT}',
                     helmParameters: ['application.version=${env.PROJECT_VERSION}']
             ]
