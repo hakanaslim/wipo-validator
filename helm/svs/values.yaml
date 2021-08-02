@@ -26,11 +26,12 @@ resources:
     cpu: '1'
     memory: "1024Mi"
 
-replicas:
-  min: 1
-
 service:
   type: ClusterIP
   name: http
   port: 80
   targetPort: 8080
+
+replicas:
+  min: 1
+
