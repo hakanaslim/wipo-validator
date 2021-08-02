@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name:  {{ include "application.fullname" . }}
+  name:  biot-wipo-deplyment
 spec:
   selector:
     matchLabels:
