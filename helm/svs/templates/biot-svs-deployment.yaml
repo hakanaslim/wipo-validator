@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name:  biot-svs-deplyment
+  name:  biot-svs-deployment
 spec:
   selector:
     matchLabels:
@@ -31,4 +31,4 @@ spec:
       volumes:
         - name: storage
           persistentVolumeClaim:
-            claimName: biot-wipo-pvc
+            claimName: biot-svs-pvc
