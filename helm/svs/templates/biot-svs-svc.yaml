@@ -1,13 +1,15 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: biot-svs-svc
+  name: {{ include "component.web.fullname" . }}
+  {{- include "helper.labels" . | nindent 2 }}
 spec:
   selector:
-    app: {{ .Values.application.name }}
-    component: {{ .Values.application.component }}
-    instance: {{ .Values.instance }}
-    ports:
-      - name: { { .Values.service.name } }
-        port: { { .Values.service.port } }
-        targetPort: { { .Values.service.targetPort } }
+    app: "{{ .Values.application.name }}"
+    component: "{{ .Values.component.web.name }}"
+    instance: "{{ .Values.instance }}"
+  type: ClusterIP
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8080
