@@ -7,7 +7,7 @@ pipelineBuild {
   ]
 
   helm = [
-        dir: 'svs',
+        dir: 'svs/helm',
         publish : true
   	]
 
@@ -19,7 +19,7 @@ pipelineBuild {
       namespace : "biot",
       managed : [
           gitRepo      : 'ssh://git@bitbucket-p.internal.epo.org:7999/kd/biot.git',
-          valuesPath   : 'wipo',
+          valuesPath   : 'svs',
           branches: [
             'master': [
                     clusterName   : 'endurance',
