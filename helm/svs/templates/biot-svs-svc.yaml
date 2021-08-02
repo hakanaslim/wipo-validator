@@ -7,31 +7,3 @@ spec:
     app: "{{ .Values.application.name }}"
     component: "{{ .Values.application.component }}"
     instance: "{{ .Values.instance }}"
-
-application:
-  name: svs
-  image: svs-docker
-  version: set-me-through-deploy-parameters
-imageRegistry: containerhub.internal.epo.org:6666
-instance: default
-component:
-  biotWipo:
-    name: "service"
-    image: "svs-docker"
-    env: []
-    requests:
-      cpu: 2
-      memory: 2Gi
-
-resources:
-  requests:
-    cpu: "100m"
-    memory: "512Mi"
-  limits:
-    cpu: '1'
-    memory: "1024Mi"
-
-
-
-replicas:
-  min: 1
