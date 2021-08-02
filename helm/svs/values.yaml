@@ -13,10 +13,6 @@ component:
     requests:
       cpu: 2
       memory: 2Gi
-    limits:
-      cpu: 8
-      memory: 8Gi
-    storage: 8Gi
 
 resources:
   requests:
