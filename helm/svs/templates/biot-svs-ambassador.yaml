@@ -3,11 +3,9 @@ kind:  Mapping
 metadata:
   name: biot-svs-ambasador
 spec:
-  prefix: {{ include "application.path" . }}
+  prefix: /{{ .Release.Namespace }}/{{ include "application.fullname" . }}/
   rewrite: /
-  timeout_ms: 90000
-  service: {{ include "application.fullname" . }}.{{ .Release.Namespace }}
-  # Especially for OpenAPI 3.0 this is needed as it allows
-  # to have a proper path in the generated API
+  timeout_ms: { { .Values.k8s.timeout_ms | int } }
+  service: { { include "component.web.fullname" . } }.{{ .Release.Namespace }}
   add_request_headers:
-    x-forwarded-prefix: {{ include "application.path" . }}
+    x-forwarded-prefix: /{{ .Release.Namespace }}/{{ include "application.fullname" . }}/
