@@ -7,7 +7,6 @@ labels:
 {{- if .Values.lifecycle }}
   lifecycle: "{{ .Values.lifecycle }}"
 {{- end }}
-{{- end -}}
 
 {{- define "application.fullname" -}}
 {{- printf "%s-%s" .Values.application.name .Values.instance -}}
