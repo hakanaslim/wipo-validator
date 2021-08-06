@@ -1,8 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: { { include "application.name" . } }
-    { { - include "helper.labels" . | nindent 2 } }
+  name: { { include "application.name" . } }{ { - include "helper.labels" . | nindent 2 } }
 spec:
   selector:
     matchLabels:
