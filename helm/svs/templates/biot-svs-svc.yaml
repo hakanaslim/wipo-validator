@@ -1,7 +1,7 @@
-kind: Service
 apiVersion: v1
+kind: Service
 metadata:
-  name: {{ include "application.name" . }}{{- include "helper.labels" . | nindent 2 }}
+  name: {{ include "application.name" .  }}{{- include "helper.labels" . | nindent 2 }}
 spec:
   selector:
     app: "{{ .Values.application.name }}"
