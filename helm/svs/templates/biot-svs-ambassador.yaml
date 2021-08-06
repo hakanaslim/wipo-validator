@@ -3,11 +3,11 @@ kind:  Mapping
 metadata:
   name: biot-svs-ambasador
 spec:
-  prefix: /{{ .Release.Namespace }}/{{ .Values.application.name }}-{{ .Values.instance }}/v1/
+  prefix: /{{ .Release.Namespace }}/{{ .Values.application.name }}-{{ .Values.instance }}/
   rewrite: /
   timeout_ms: 90000
   service: {{ include "application.fullname" . }}.{{ .Release.Namespace }}
   # Especially for OpenAPI 3.0 this is needed as it allows
   # to have a proper path in the generated API
   add_request_headers:
-    x-forwarded-prefix: /{{ .Release.Namespace }}/{{ .Values.application.name }}-{{ .Values.instance }}/v1/
+    x-forwarded-prefix: /{{ .Release.Namespace }}/{{ .Values.application.name }}-{{ .Values.instance }}/
