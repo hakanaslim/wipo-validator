@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: {{ .Values.application.name }} {{- include "helper.labels" . | nindent 2 }}
+  name: {{ .Values.application.name }}
 spec:
   accessModes:
     - ReadWriteMany
