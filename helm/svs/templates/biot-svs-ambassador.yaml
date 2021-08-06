@@ -1,7 +1,8 @@
 apiVersion: getambassador.io/v1
 kind:  Mapping
 metadata:
-  name: biot-svs-ambasador
+  metadata:
+    name: { { .Release.Namespace } }-{{ include "application.fullname" . }}
 spec:
   prefix: /{{ .Release.Namespace }}/{{ .Values.application.name }}-{{ .Values.instance }}/
   rewrite: /

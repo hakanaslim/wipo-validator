@@ -1,3 +1,4 @@
+{{- define "helper.labels" -}}
 labels:
     app: "{{ .Values.application.name }}"
     component: "{{ .Values.component.biotWipo.name }}"
@@ -7,6 +8,7 @@ labels:
 {{- if .Values.lifecycle }}
   lifecycle: "{{ .Values.lifecycle }}"
 {{- end }}
+{{- end -}}
 
 {{- define "application.fullname" -}}
 {{- printf "%s-%s" .Values.application.name .Values.instance -}}
