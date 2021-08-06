@@ -1,8 +1,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: {{ include "application.fullname" . }}
-  {{- include "helper.labels" . | nindent 2 }}
+  name: biot-svs-svc
 spec:
   selector:
     app: "{{ .Values.application.name }}"
