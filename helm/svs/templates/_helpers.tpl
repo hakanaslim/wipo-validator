@@ -1,4 +1,3 @@
-{{- define "helper.labels" -}}
 labels:
     app: "{{ .Values.application.name }}"
     component: "{{ .Values.component.biotWipo.name }}"
