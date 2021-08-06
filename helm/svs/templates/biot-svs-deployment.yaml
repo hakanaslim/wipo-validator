@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "application.name" . }}.{{ .Release.Namespace }}1
+  name: {{ include "application.name" . }}.{{ .Release.Namespace }}
 spec:
   selector:
     matchLabels:
