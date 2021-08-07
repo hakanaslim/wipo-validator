@@ -9,6 +9,6 @@ spec:
     instance: "{{ .Values.instance }}"
   type: ClusterIP
   port:
-    number: 80
+    number: 8080
     name: http-istio-gateway
     protocol: HTTP
