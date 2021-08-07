@@ -8,5 +8,3 @@ spec:
     component: "{{ .Values.application.name }}"
     instance: "{{ .Values.instance }}"
   type: ClusterIP
-  ports:
-    - name: https
