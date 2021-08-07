@@ -8,3 +8,7 @@ spec:
     component: "{{ .Values.application.name }}"
     instance: "{{ .Values.instance }}"
   type: ClusterIP
+  port:
+    number: 80
+    name: http-istio-gateway
+    protocol: HTTP
