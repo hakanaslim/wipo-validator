@@ -10,4 +10,3 @@ spec:
   type: ClusterIP
   ports:
     - name: https
-        port: 8080
