@@ -8,4 +8,5 @@ spec:
     component: "{{ .Release.Namespace }}-{{ .Values.application.name }}"
     instance: "{{ .Values.instance }}"
   type: ClusterIP
-  ports: 80
+  ports:
+    port: 80
