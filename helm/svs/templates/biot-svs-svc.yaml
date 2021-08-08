@@ -9,4 +9,5 @@ spec:
     instance: "{{ .Values.instance }}"
   type: ClusterIP
   ports:
-    8080
+    port : 8080
+    portt : 8081
