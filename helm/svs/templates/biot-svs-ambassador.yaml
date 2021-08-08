@@ -1,5 +1,5 @@
 apiVersion: getambassador.io/v1
-kind:  Mapping
+kind:  Service
 metadata:
   name: svs.test
 spec:
