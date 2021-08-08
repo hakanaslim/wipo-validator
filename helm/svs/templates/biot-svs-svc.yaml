@@ -12,6 +12,3 @@ spec:
     - containerPort: 80
       protocol: TCP
   resources: { }
-  volumeMounts:
-    mountPath: /app/config
-    name: volname
