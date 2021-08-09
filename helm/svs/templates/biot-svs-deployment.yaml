@@ -33,8 +33,8 @@ spec:
         - name: storage
           persistentVolumeClaim:
             claimName: {{ .Release.Namespace }}-{{ include "application.name" . }}
-    livenessProbe:
-      httpGet:
+       livenessProbe:
+         httpGet:
         path: /{{ .Release.Namespace }}/{{ .Values.application.name }}/actuator/health
         port: 8080
         scheme: HTTP
