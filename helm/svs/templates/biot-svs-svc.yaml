@@ -5,7 +5,7 @@ metadata:
 spec:
   selector:
      app: "{{ .Values.application.name }}"
-     component: "{{ .Release.Namespace }}-{{ .Values.application.name }}"
+     component: "{{ .Values.application.name }}-{{ .Release.Namespace }}"
      instance: "{{ .Values.instance }}"
   type: ClusterIP
   ports:
