@@ -40,4 +40,3 @@ spec:
          scheme: HTTP
          initialDelaySeconds: 150
          periodSeconds: 15
-         failureThreshold: 20
