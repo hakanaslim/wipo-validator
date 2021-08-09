@@ -5,7 +5,7 @@ metadata:
 spec:
   prefix: /{{ .Release.Namespace }}/{{ .Values.application.name }}-{{ .Values.instance }}/
   rewrite: /
-  timeout_ms:  {{ .Values.k8s.timeout_ms }}
+  timeout_ms:  90000
   service: {{ .Release.Namespace }}/{{ .Values.application.name }}-{{ .Values.instance }}/
   add_request_headers:
     x-forwarded-prefix: /{{ .Release.Namespace }}/{{ .Values.application.name }}-{{ .Values.instance }}/
