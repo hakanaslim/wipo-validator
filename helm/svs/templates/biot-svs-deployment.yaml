@@ -39,4 +39,3 @@ spec:
          port: 8080
          scheme: HTTP
          initialDelaySeconds: 150
-         periodSeconds: 15
