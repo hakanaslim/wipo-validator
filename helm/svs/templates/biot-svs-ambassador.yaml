@@ -1,7 +1,7 @@
 apiVersion: getambassador.io/v1
 kind:  Mapping
 metadata:
-  name: svs-test
+  name: {{ include "component.application.fullname" . }}
 spec:
   prefix: /{{ .Release.Namespace }}/{{ .Values.application.name }}-{{ .Values.instance }}/
   rewrite: /
