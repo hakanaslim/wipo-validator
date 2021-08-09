@@ -4,7 +4,7 @@ metadata:
   name: {{ include "component.application.name" }}
 spec:
   prefix: /{{ .Release.Namespace }}/{{ .Values.application.name }}-{{ .Values.instance }}/
-  rewrite: /
+  rewrite: ""
   timeout_ms:  90000
   service: {{ .Release.Namespace }}/{{ .Values.application.name }}-{{ .Values.instance }}/
   add_request_headers:
