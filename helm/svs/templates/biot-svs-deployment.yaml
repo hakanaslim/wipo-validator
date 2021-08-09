@@ -34,7 +34,7 @@ spec:
             claimName: {{ .Release.Namespace }}-{{ include "application.name" . }}
   livenessProbe:
     httpGet:
-      path: /{{ .Release.Namespace }}/{{ .Values.application.name }}-{{ .Values.instance }}/{{ .Values.application.api.version }}/
+      path: /{{ .Release.Namespace }}/{{ .Values.application.name }}-{{ .Values.instance }}/
       port: 8080
       scheme: HTTP
     initialDelaySeconds: 150
@@ -42,6 +42,6 @@ spec:
     failureThreshold: 20
   readinessProbe:
      httpGet:
-       path: /{{ .Release.Namespace }}/{{ .Values.application.name }}-{{ .Values.instance }}/{{ .Values.application.api.version }}/actuator/health
+       path: /{{ .Release.Namespace }}/{{ .Values.application.name }}-{{ .Values.instance }}/actuator/health
        port: 8080
        scheme: HTTP
