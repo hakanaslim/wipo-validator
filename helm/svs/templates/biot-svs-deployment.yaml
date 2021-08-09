@@ -33,9 +33,9 @@ spec:
         - name: storage
           persistentVolumeClaim:
             claimName: {{ .Release.Namespace }}-{{ include "application.name" . }}
-       livenessProbe:
-         httpGet:
-         path: /{{ .Release.Namespace }}/{{ .Values.application.name }}
-         port: 8080
-         scheme: HTTP
-         initialDelaySeconds: 150
+      livenessProbe:
+        httpGet:
+        path: /{{ .Release.Namespace }}/{{ .Values.application.name }}
+        port: 8080
+        scheme: HTTP
+        initialDelaySeconds: 150
