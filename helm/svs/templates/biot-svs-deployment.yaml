@@ -40,3 +40,10 @@ spec:
       initialDelaySeconds: 150
       periodSeconds: 15
       failureThreshold: 20
+    readinessProbe:
+      httpGet:
+        path: /{{ .Release.Namespace }}/{{ .Values.application.name }}-{{ .Values.instance }}/actuator/health
+        port: 8080
+        scheme: HTTP
+      initialDelaySeconds: 15
+      periodSeconds: 5

@@ -1,7 +1,7 @@
 apiVersion: getambassador.io/v2
 kind:  Mapping
 metadata:
-  name: {{ .Values.application.name }}/{{ .Values.application.name }}-{{ .Values.instance }}/
+  name: {{ .Values.application.name }}
 spec:
   prefix: /{{ .Release.Namespace }}/{{ .Values.application.name }}-{{ .Values.instance }}/
   rewrite: ""
