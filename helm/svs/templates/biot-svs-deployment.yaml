@@ -44,7 +44,7 @@ spec:
               scheme: HTTP
             initialDelaySeconds: 15
             periodSeconds: 5
-    volumes:
-      - name: storage
-        persistentVolumeClaim:
-        claimName: {{ .Release.Namespace }}-{{ include "application.name" . }}
+      volumes:
+        - name: storage
+          persistentVolumeClaim:
+          claimName: {{ .Release.Namespace }}-{{ include "application.name" . }}
