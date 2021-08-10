@@ -19,9 +19,6 @@ spec:
           image: {{ .Values.imageRegistry }}/{{ .Values.application.image }}:{{ .Values.application.version }}
           ports:
               - containerPort: 8080
-          volumeMounts:
-            - name: storage
-              mountPath: helm/svs/templates
           resources:
             requests:
               cpu: "{{ .Values.resources.requests.cpu }}"
