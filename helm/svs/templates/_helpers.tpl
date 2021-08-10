@@ -17,3 +17,11 @@ labels:
 {{- define "application.path" -}}
 {{- printf "/%s/%s/" .Values.application.path .Values.instance -}}
 {{- end -}}
+
+{{- define "application.fullname" -}}
+{{- if eq "default" .Values.instance -}}
+{{- .Values.application.name -}}
+{{- else -}}
+{{- printf "%s-%s" .Values.application.name .Values.instance -}}
+{{- end -}}
+{{- end -}}
