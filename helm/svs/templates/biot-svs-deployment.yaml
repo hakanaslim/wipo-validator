@@ -28,7 +28,7 @@ spec:
             memory: "{{ .Values.resources.limits.memory }}"
         livenessProbe:
           httpGet:
-            path: /{{ .Release.Namespace }}/{{ include "application.fullname" . }}
+            path: /{{ .Release.Namespace }}/{{ include "application.fullname" . }}-{{ .Values.instance }}/
             port: 8080
             scheme: HTTP
           initialDelaySeconds: 10
@@ -36,7 +36,7 @@ spec:
           failureThreshold: 20
         readinessProbe:
           httpGet:
-            path: /{{ .Release.Namespace }}/{{ include "application.fullname" . }}
+            path: /{{ .Release.Namespace }}/{{ include "application.fullname" . }}-{{ .Values.instance }}/
             port: 8080
             scheme: HTTP
           initialDelaySeconds: 15
