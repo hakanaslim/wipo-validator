@@ -37,7 +37,7 @@ spec:
             initialDelaySeconds: 10
             periodSeconds: 5
             failureThreshold: 20
-          eadinessProbe:
+          readinessProbe:
             httpGet:
               path: /{{ .Release.Namespace }}/{{ include "application.fullname" . }}/actuator/health
               port: 8080
