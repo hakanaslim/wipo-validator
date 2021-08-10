@@ -44,7 +44,7 @@ spec:
           volumeMounts:
           - name: storage
             mountPath: "/temp/ST26"
-        volumes:
-        - name: storage
-          persistentVolumeClaim:
-            claimName: {{ .Release.Namespace  }}-{{ include "application.name" . }}
+      volumes:
+      - name: storage
+        persistentVolumeClaim:
+         claimName: {{ .Release.Namespace  }}-{{ include "application.name" . }}
