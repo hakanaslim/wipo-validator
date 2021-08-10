@@ -31,7 +31,7 @@ spec:
             path: /{{ .Release.Namespace }}/{{ include "application.fullname" . }}-{{ .Values.instance }}/
             port: 8080
             scheme: HTTP
-          initialDelaySeconds: 10
+          initialDelaySeconds: 100
           periodSeconds: 5
           failureThreshold: 20
         readinessProbe:
@@ -39,7 +39,7 @@ spec:
             path: /{{ .Release.Namespace }}/{{ include "application.fullname" . }}-{{ .Values.instance }}/
             port: 8080
             scheme: HTTP
-          initialDelaySeconds: 15
+          initialDelaySeconds: 150
           periodSeconds: 5
         volumeMounts:
         - name: storage
