@@ -15,35 +15,35 @@ spec:
       {{- include "helper.labels" . | nindent 6 }}
     spec:
       containers:
-        - name: {{ .Values.application.name }}
-          image: {{ .Values.imageRegistry }}/{{ .Values.application.image }}:{{ .Values.application.version }}
-          ports:
-          - containerPort: 8080
-          resources:
-            requests:
-              cpu: "{{ .Values.resources.requests.cpu }}"
-              memory: "{{ .Values.resources.requests.memory }}"
-            limits:
-              cpu: "{{ .Values.resources.limits.cpu }}"
-              memory: "{{ .Values.resources.limits.memory }}"
-          livenessProbe:
-            httpGet:
-              path: /{{ .Release.Namespace }}/{{ include "application.fullname" . }}/actuator/health
-              port: 8080
-              scheme: HTTP
-            initialDelaySeconds: 10
-            periodSeconds: 5
-            failureThreshold: 20
-          readinessProbe:
-            httpGet:
-              path: /{{ .Release.Namespace }}/{{ include "application.fullname" . }}/actuator/health
-              port: 8080
-              scheme: HTTP
-            initialDelaySeconds: 15
-            periodSeconds: 5
-          volumeMounts:
-          - name: storage
-            mountPath: "/temp/ST26"
+      - name: {{ .Values.application.name }}
+        image: {{ .Values.imageRegistry }}/{{ .Values.application.image }}:{{ .Values.application.version }}
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            cpu: "{{ .Values.resources.requests.cpu }}"
+            memory: "{{ .Values.resources.requests.memory }}"
+          limits:
+            cpu: "{{ .Values.resources.limits.cpu }}"
+            memory: "{{ .Values.resources.limits.memory }}"
+        livenessProbe:
+          httpGet:
+            path: /{{ .Release.Namespace }}/{{ include "application.fullname" . }}/actuator/health
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 10
+          periodSeconds: 5
+          failureThreshold: 20
+        readinessProbe:
+          httpGet:
+            path: /{{ .Release.Namespace }}/{{ include "application.fullname" . }}/actuator/health
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 15
+          periodSeconds: 5
+        volumeMounts:
+        - name: storage
+          mountPath: "/temp/ST26"
       volumes:
       - name: storage
         persistentVolumeClaim:
