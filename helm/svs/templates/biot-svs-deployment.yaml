@@ -41,4 +41,10 @@ spec:
               scheme: HTTP
             initialDelaySeconds: 15
             periodSeconds: 5
-
+          volumeMounts:
+          - name: storage
+            mountPath: /temp/ST26
+        volumes:
+        - name: storage
+          persistentVolumeClaim:
+            claimName: { { .Release.Namespace } }-{{ include "application.name" . }}
