@@ -33,3 +33,18 @@ spec:
         - name: storage
           persistentVolumeClaim:
             claimName: {{ .Release.Namespace }}-{{ include "application.name" . }}
+      livenessProbe:
+        httpGet:
+          path: /{{ .Release.Namespace }}/{{ include "application.fullname" . }}/actuator/health
+          port: 8080
+          scheme: HTTP
+        initialDelaySeconds: 10
+        periodSeconds: 5
+        failureThreshold: 20
+      readinessProbe:
+        httpGet:
+          path: /{{ .Release.Namespace }}/{{ include "application.fullname" . }}/actuator/health
+          port: 8080
+          scheme: HTTP
+        initialDelaySeconds: 15
+        periodSeconds: 5
