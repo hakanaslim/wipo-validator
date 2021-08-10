@@ -45,6 +45,6 @@ spec:
             initialDelaySeconds: 15
             periodSeconds: 5
       volumes:
-        name: storage
+        - name: storage
         persistentVolumeClaim:
         claimName: {{ .Release.Namespace }}-{{ include "application.name" . }}
