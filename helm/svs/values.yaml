@@ -4,7 +4,7 @@ application:
   image: svs-docker
   version: set-me-through-deploy-parameters
 imageRegistry: containerhub.internal.epo.org:6666
-instance: default
+instance: "default"
 component:
   biotWipo:
     name: "service"
