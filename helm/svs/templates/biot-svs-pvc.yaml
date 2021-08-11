@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: {{ .Release.Namespace }}-{{ include "application.name" }}
+  name: {{ .Release.Namespace .}}-{{ include "application.name" }}
           {{- include "helper.labels" . | nindent 2 }}
 spec:
   accessModes:
