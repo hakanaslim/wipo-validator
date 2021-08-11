@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: "{{ .Release.Namespace }}"-{{ include "application.name" . }}
+  name: {{ include "application.name" . }}"-{{ .Release.Namespace }}"
         {{- include "helper.labels" . | nindent 2 }}
 spec:
   selector:
