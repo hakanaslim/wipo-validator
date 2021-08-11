@@ -2,7 +2,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
 name: {{ include "application.name" . }}-{{ .Release.Namespace }}
-      {{- include "helper.labels" . "123"  }}
+      {{- include "helper.labels"  "123"  }}
 spec:
   accessModes:
     - ReadWriteMany
