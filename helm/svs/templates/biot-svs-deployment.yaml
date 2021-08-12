@@ -26,6 +26,16 @@ spec:
           limits:
             cpu: "{{ .Values.resources.limits.cpu }}"
             memory: "{{ .Values.resources.limits.memory }}"
+        livenessProbe:
+          tcpSocket:
+            port: 8080
+          initialDelaySeconds: 100
+          periodSeconds: 5
+        readinessProbe:
+          tcpSocket:
+            port: 8080
+          initialDelaySeconds: 150
+          periodSeconds: 5
         volumeMounts:
         - name: storage
           mountPath: "/temp/ST26"
