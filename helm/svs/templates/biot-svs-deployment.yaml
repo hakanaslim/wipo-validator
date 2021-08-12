@@ -42,4 +42,5 @@ spec:
       volumes:
       - name: storage
         persistentVolumeClaim:
-          claimName: {{ .Release.Namespace  }}-{{ include "application.name" . }}
+          claimName: {{ include "application.name" . }}-{{ .Release.Namespace }}
+          {{- include "helper.labels" . | nindent 2 }}
