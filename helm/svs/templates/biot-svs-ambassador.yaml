@@ -1,11 +1,11 @@
 apiVersion: getambassador.io/v2
 kind:  Mapping
 metadata:
-  name: {{ .Release.Namespace }}/{{ .Values.application.name }}-{{ .Values.instance }}.{{ .Release.Namespace }}:8080
+  name: {{ .Release.Namespace }}/{{ .Values.application.name }}-{{ .Values.instance }}-{{ .Release.Namespace }}:8080
 spec:
-  prefix: /{{ .Release.Namespace }}/{{ .Values.application.name }}-{{ .Values.instance }}.{{ .Release.Namespace }}:8080
+  prefix: /{{ .Release.Namespace }}/{{ .Values.application.name }}-{{ .Values.instance }}-{{ .Release.Namespace }}:8080
   rewrite: ""
   timeout_ms:  90000
-  service: {{ .Values.application.name }}-{{ .Values.instance }}.{{ .Release.Namespace }}:8080
+  service: {{ .Values.application.name }}-{{ .Values.instance }}-{{ .Release.Namespace }}:8080
   add_request_headers:
-    x-forwarded-prefix: /{{ .Release.Namespace }}/{{ .Values.application.name }}-{{ .Values.instance }}.{{ .Release.Namespace }}:8080
+    x-forwarded-prefix: /{{ .Release.Namespace }}/{{ .Values.application.name }}-{{ .Values.instance }}-{{ .Release.Namespace }}:8080
