@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Values.application.name }}-{{ .Values.instance }}.{{ .Release.Namespace }}:8080
+  name: {{ .Values.application.name }}-{{ .Values.instance }}-{{ .Release.Namespace }}:8080
 spec:
   selector:
      app: "{{ .Values.application.name }}.{{ .Release.Namespace }}"
