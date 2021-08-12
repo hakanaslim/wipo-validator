@@ -26,21 +26,6 @@ spec:
           limits:
             cpu: "{{ .Values.resources.limits.cpu }}"
             memory: "{{ .Values.resources.limits.memory }}"
-        livenessProbe:
-          httpGet:
-            path: /{{ .Release.Namespace }}/{{ include "application.fullname" . }}-{{ .Values.instance }}/actuator/health
-            port: 8080
-            scheme: HTTP
-          initialDelaySeconds: 100
-          periodSeconds: 5
-          failureThreshold: 20
-        readinessProbe:
-          httpGet:
-            path: /{{ .Release.Namespace }}/{{ include "application.fullname" . }}-{{ .Values.instance }}/actuator/health
-            port: 8080
-            scheme: HTTP
-          initialDelaySeconds: 150
-          periodSeconds: 5
         volumeMounts:
         - name: storage
           mountPath: "/temp/ST26"
