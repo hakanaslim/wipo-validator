@@ -6,6 +6,6 @@ spec:
   prefix: /{{ .Release.Namespace }}-{{ .Values.application.name }}-{{ .Values.instance }}/
   rewrite: ""
   timeout_ms:  90000
-  service: {{ .Values.application.name }}-{{ .Values.instance }}.{{ .Release.Namespace }}:8080
+  service: {{ .Values.application.name }}-{{ .Values.instance }}-{{ .Release.Namespace }}:8080
   add_request_headers:
     x-forwarded-prefix: /{{ .Release.Namespace }}-{{ .Values.application.name }}-{{ .Values.instance }}/
