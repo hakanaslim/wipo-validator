@@ -1,11 +1,11 @@
 apiVersion: getambassador.io/v2
 kind:  Mapping
 metadata:
-  name: {{ include "application.name" . }}-{{ .Release.Namespace }}
+  name: {{ include "application.name" . }}.{{ .Release.Namespace }}
 spec:
   prefix: /{{ include "application.name" . }}.{{ .Release.Namespace }}/
   rewrite: ""
   timeout_ms:  90000
-  service: {{ include "application.name" . }}-{{ .Release.Namespace }}
+  service: {{ include "application.name" . }}.{{ .Release.Namespace }}
   add_request_headers:
     x-forwarded-prefix: /{{ include "application.name" . }}.{{ .Release.Namespace }}/
