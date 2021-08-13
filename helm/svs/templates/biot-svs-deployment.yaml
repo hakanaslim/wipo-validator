@@ -15,7 +15,7 @@ spec:
       {{- include "helper.labels" . | nindent 6 }}
     spec:
       containers:
-      - name: {{ .Values.application.name }}
+      - name: {{ .Values.application.name }}-{{ .Release.Namespace }}
         image: {{ .Values.imageRegistry }}/{{ .Values.application.image }}:{{ .Values.application.version }}
         ports:
         - containerPort: 8080
