@@ -1,7 +1,4 @@
 {{- define "helper.labels" -}}
-labels:
-    instance: "{{ .Values.instance }}"
-    version: "{{ .Values.application.version }}"
 
 {{- if .Values.lifecycle }}
   lifecycle: "{{ .Values.lifecycle }}"
