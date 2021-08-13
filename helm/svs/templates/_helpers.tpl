@@ -1,6 +1,4 @@
 {{- define "helper.labels" -}}
-labels:
-    app: "{{ .Values.application.name }}"
 
 {{- if .Values.lifecycle }}
   lifecycle: "{{ .Values.lifecycle }}"
