@@ -1,6 +1,5 @@
 {{- define "helper.labels" -}}
 labels:
-    app: "{{ .Values.application.name }}"
     instance: "{{ .Values.instance }}"
     version: "{{ .Values.application.version }}"
 
