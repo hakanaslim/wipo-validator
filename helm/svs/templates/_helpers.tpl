@@ -1,9 +1,5 @@
 {{- define "helper.labels" -}}
 
-{{- if .Values.lifecycle }}
-  lifecycle: "{{ .Values.lifecycle }}"
-{{- end }}
-{{- end -}}
 
 {{- define "application.name" -}}
 {{- printf "%s-%s" .Values.application.name .Values.instance -}}
