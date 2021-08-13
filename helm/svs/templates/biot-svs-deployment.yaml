@@ -5,9 +5,10 @@ metadata:
         {{- include "helper.labels" . | nindent 2 }}
 spec:
   selector:
-    app: "{{ .Values.application.name }}-{{ .Release.Namespace }}"
-    component: "{{ .Values.application.name }}-{{ .Release.Namespace }}"
-    instance: "{{ .Values.instance }}"
+    matchLabels:
+      app: "{{ .Values.application.name }}-{{ .Release.Namespace }}"
+      component: "{{ .Values.application.name }}-{{ .Release.Namespace }}"
+      instance: "{{ .Values.instance }}"
   replicas: {{ .Values.replicas.min }}
   template:
     metadata:
