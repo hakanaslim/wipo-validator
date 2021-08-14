@@ -7,5 +7,3 @@ spec:
   rewrite: ""
   timeout_ms:  90000
   service: {{ include "application.name" . }}-{{ .Release.Namespace }}
-#  add_request_headers:
-#    x-forwarded-prefix: /{{ include "application.name" . }}-{{ .Release.Namespace }}/ }}/
