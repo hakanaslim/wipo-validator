@@ -1,7 +1,7 @@
 {{- define "helper.labels" -}}
 labels:
-    app: "{{ .Values.application.name }}"
-    component: "{{ .Values.component.biotWipo.name }}"
+    app: "{{ .Values.application.name }}-{{ .Release.Namespace }}"
+    component: "{{ .Values.application.name }}-{{ .Release.Namespace }}"
     instance: "{{ .Values.instance }}"
     version: "{{ .Values.application.version }}"
 
