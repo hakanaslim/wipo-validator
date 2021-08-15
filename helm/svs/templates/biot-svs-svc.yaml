@@ -4,9 +4,9 @@ metadata:
   name: {{ include "application.name" . }}-{{ .Release.Namespace }}
 spec:
   selector:
-     app: {{ .Values.application.name }}-{{ .Release.Namespace }}
-     component: {{ .Values.application.name }}-{{ .Release.Namespace }}
-     instance: {{ .Values.instance }}
+     app: "{{ .Values.application.name }}-{{ .Release.Namespace }}"
+     component: "{{ .Values.application.name }}-{{ .Release.Namespace }}"
+     instance: "{{ .Values.instance }}"
   type: ClusterIP
   ports:
     - port: 8080
