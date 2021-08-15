@@ -18,14 +18,6 @@ component:
       memory: 8Gi
     storage: 8Gi
 
-resources:
-  requests:
-    cpu: "100m"
-    memory: "512Mi"
-  limits:
-    cpu: '1'
-    memory: "1024Mi"
-
 service:
   type: ClusterIP
   name: http
