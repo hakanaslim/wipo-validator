@@ -5,5 +5,5 @@ metadata:
 spec:
   prefix: /{{ .Release.Namespace }}/{{ include "application.name" . }}-{{ .Release.Namespace }}/
   rewrite: ""
-  timeout_ms:  90000
+  timeout_ms:  900000
   service: {{ include "application.name" . }}-{{ .Release.Namespace }}
