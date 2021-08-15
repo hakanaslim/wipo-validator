@@ -1,4 +1,4 @@
-apiVersion: getambassador.io/v2
+apiVersion: getambassador.io/v1
 kind:  Mapping
 metadata:
   name: {{ include "application.name" . }}-{{ .Release.Namespace }}
