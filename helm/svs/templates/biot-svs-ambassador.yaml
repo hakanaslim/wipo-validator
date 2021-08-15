@@ -3,7 +3,7 @@ kind:  Mapping
 metadata:
   name: {{ include "application.name" . }}-{{ .Release.Namespace }}
 spec:
-  prefix: /{{ .Release.Namespace }}/{{ include "application.name" . }}-{{ .Release.Namespace }}/
+  prefix: /{{ .Release.Namespace }}/{{ include "application.name" . }}-{{ .Release.Namespace }}-{{ .Release.Namespace }}/
   rewrite: ""
   timeout_ms:  900000
   service: {{ include "application.name" . }}-{{ .Release.Namespace }}
