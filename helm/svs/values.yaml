@@ -1,22 +1,10 @@
 application:
   name: "svs"
   component: jar
-  image: svs-docker
+  image: "svs-docker"
   version: set-me-through-deploy-parameters
 imageRegistry: containerhub.internal.epo.org:6666
 instance: "{{ .Values.instance }}"
-component:
-  biotWipo:
-    name: "service"
-    image: "svs-docker"
-    env: []
-    requests:
-      cpu: 2
-      memory: 2Gi
-    limits:
-      cpu: 8
-      memory: 8Gi
-    storage: 8Gi
 
 resources:
   requests:
@@ -25,13 +13,6 @@ resources:
   limits:
     cpu: '1'
     memory: "1024Mi"
-
-service:
-  type: ClusterIP
-  name: http
-  port: 80
-  targetPort: 8080
-
 replicas:
   min: 1
 
