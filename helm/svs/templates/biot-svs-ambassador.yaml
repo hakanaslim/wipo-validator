@@ -4,7 +4,7 @@ metadata:
   name: {{ include "application.name" . }}-{{ .Release.Namespace }}
 spec:
   prefix: /{{ .Release.Namespace }}/{{ include "application.name" . }}-{{ .Release.Namespace }}/
-  rewrite: ""
+  rewrite: "/"
   timeout_ms:  90000
   service: {{ include "application.name" . }}-{{ .Release.Namespace }}.{{ .Release.Namespace }}:8080
   host: {{ .Values.k8s.host }}

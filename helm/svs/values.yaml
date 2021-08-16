@@ -9,7 +9,7 @@ instance: "{{ .Values.instance }}"
 k8s:
   clusterName: "set-me-through-deploy-parameters"
   host: "set-me-through-deploy-parameters"
-  
+
 resources:
   requests:
     cpu: "100m"
