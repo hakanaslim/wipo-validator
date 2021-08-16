@@ -7,5 +7,6 @@ spec:
   rewrite: ""
   timeout_ms:  90000
   service: {{ include "application.name" . }}-{{ .Release.Namespace }}.{{ .Release.Namespace }}:8080
+  host: {{ .Values.k8s.host }}
 #  add_request_headers:
 #    x-forwarded-prefix: /{{ include "application.name" . }}-{{ .Release.Namespace }}/
