@@ -6,4 +6,4 @@ ADD resources/start.sh /
 RUN chmod 777 /*.sh
 
 EXPOSE 8080
-ENTRYPOINT ["/start.sh","-Dfile.encoding=UTF-8" ", "-jar", "wipo-sequence-validator.jar"]
+ENTRYPOINT ["/start.sh","-Dfile.encoding=UTF-8", "-jar", "wipo-sequence-validator.jar"]
