@@ -1,17 +1,20 @@
-Feature: Managing the Sequence listing SVS task in PWB
+Feature: Managing the Sequence listing SVS task in PWB - Task Management
 
   Background:
     Given User is logged in PWB as AZ-ASAP-USER
     #subset of Formality officers as defined in the security group AZ-ASAP-USER
-    And PWB is open
+    And Task_Management is open
 
   Scenario Outline: Update Sequence listing information label for PCT and National dossiers
     Given User has claimed SVS task for <type> dossier
-    And User opens SVS task
+    And User has opened SVS task
+    And SEQL_status is status1
+    #status1 can be some of the possible status, e.g. new, preparing, verifying, etc.
     When User selects random label value
     #random label value can be any label available in the SEQL label drop down list
     Then SEQL_label shows selected label value
-    And Previous_actions table shows new entry with User, today's date and SEQL_LABEL_NOTE comment
+    And system creates a new entry in History table with today's date, User, status1 and SEQL_LABEL_NOTE comment
+    #meaning that no matter which status the SEQL has, the status does not changed
     #final text of SEQL_LABEL_NOTE is indicated in GUI specifications
     Examples:
       | type |
@@ -21,28 +24,29 @@ Feature: Managing the Sequence listing SVS task in PWB
   Scenario: Creation of a comment
     Given User has claimed SVS task for a dossier
     #dossier can be any type of dossier: EP, PCT, NATS
-    And User opens SVS task
+    And User has opened SVS task
+    And SEQL_status is status1
+    #status1 can be some of the possible status, e.g. new, preparing, verifying, etc.
     When User enters comment
     #comment can be any text introduced in the text field and saved by the user
-    Then Previous_actions table shows new entry with User, today's date and COMMENTS comment
+    Then system creates a new entry in History table with today's date, User, status1 and COMMENTS comment
+    #meaning that no matter which status the SEQL has, the status does not changed
     #final text of COMMENTS is indicated in GUI specifications
 
   Scenario: Open a verification report
     Given User has claimed SVS task for a dossier
     #dossier can be any type of dossier: EP, PCT, NATS
-    And User opens SVS task
+    And User has opened SVS task
     And SVS task has Verification report
-    #meaning, for instance, that "Open report" button is available and a "Verification report summary" is shown
-    When User opens Verification report
-    Then Verification report is open
+    #meaning that the report has been created, and therefore a "Verification report summary" is shown
+    When User opens Verification window
+    Then system opens Verification window showing Verification report and SEQL file
     #it is opened in a new browser window
-    And Left Pane shows Verification report
     #left panel of the new browser window shows the verification report
-    And Right Pane shows SEQL file
     #right panel of the new browser window shows the SEQL file (in a readable form) for which the verification report was made
 
   Scenario: Navigation of the verification report
-    Given Verification report is open
+    Given Verification window is opened
     When User selects row of Verification report
     Then system scrolls and highlights relevant SEQL file section
     #meaning that the SEQL file section where the error/warning applies is highlighted
@@ -50,9 +54,9 @@ Feature: Managing the Sequence listing SVS task in PWB
   Scenario: Uploading a SEQL file and verification of it
     Given User has claimed SVS task for a dossier
     #dossier can be any type of dossier: EP, PCT, NATS
-    And User opens SVS task
+    And User has opened SVS task
     When User uploads SEQL file
-    #meaning that the user has uploaded a file and has pressed button "Upload SEQL and verify"
+    #meaning that the user has uploaded a file and has pressed button "Upload and verify"
     Then system shows process started message
     #meaning that the user may see a "Verification started" message
     #this test finishes here, because the verification process may take some time
@@ -60,19 +64,22 @@ Feature: Managing the Sequence listing SVS task in PWB
   Scenario: Submit valid sequence listings to the import queue
     Given User has claimed SVS task for a dossier
     #dossier can be any type of dossier: EP, PCT, NATS
-    And User opens SVS task
+    And User has opened SVS task
     When User submits valid SEQL file to import queue
-    #meaning the user has clicked "Submit SEQL"
+    #meaning the user has clicked "Submit SEQL" and confirms the confirmation message
     #a "valid" SEQL file means a file without errors
-    And User confirms submission
-    #meaning the user has continued with the submission (i.e. has pressed Submit button of confirmation message)
-    Then Previous_actions table shows new entry with User, today's date and SUBMITTED_INFO comment
+    Then system sets SEQL_status to 'submitted'
+    #the status of the SEQL should changed to "submitted"
+    And system creates a new entry in History table with today's date, User, 'submitted' and SUBMITTED_INFO comment
     #final text of SUBMITTED_INFO is indicated in GUI specifications
+    And system closes SVS task
+    #the task is closed as soon as the user submits the SEQL
+    #the task disappears from the list of tasks (inbox) and from the right panel where it was opened
 
   Scenario: Try to submit a sequence listings with errors
     Given User has claimed SVS task for a dossier
     #dossier can be any type of dossier: EP, PCT, NATS
-    And User opens SVS task
+    And User has opened SVS task
     When User submits invalid SEQL file to import queue
     #meaning the user has clicked "Submit SEQL"
     #an "invalid" SEQL file means a file with errors
@@ -81,7 +88,7 @@ Feature: Managing the Sequence listing SVS task in PWB
 
   Scenario Outline: Try to submit a sequence listings for PCT or National dossiers without label indicated
     Given User has claimed SVS task for <type> dossier
-    And User opens SVS task
+    And User has opened SVS task
     And SVS task shows SEQL_label empty
     #meaning no SEQL label has been assigned to the task
     When User submits valid SEQL file to import queue
@@ -97,20 +104,40 @@ Feature: Managing the Sequence listing SVS task in PWB
   Scenario: Set a sequence listing to Suspend
     Given User has claimed SVS task for a dossier
     #dossier can be any type of dossier: EP, PCT, NATS
-    And User opens SVS task
+    And User has opened SVS task
     When User sets SVS task to suspend
-    #meaning the user presses in the "Suspend" button of the task
-    Then Suspended label shows today's date
-    And Previous_actions table shows new entry with User, today's date and SUSPENDED_TEXT comment
+    #meaning the user presses the "Suspend" button of the task and confirms the confirmation message
+    Then system stores today's date as Suspended date
+    And system sets SEQL_status to 'suspended'
+    #the status of the SEQL should changed to "suspended"
+    And system set Suspended_date to today's date
+    And system creates a new entry in History table with today's date, User, 'suspended' and SUSPENDED_TEXT comment
     #final text of SUSPENDED_TEXT is indicated in GUI specifications
+    And system closes SVS task
+    #the task is closed as soon as the user suspends the task
+    #the task disappears from the list of tasks (inbox) and from the right panel where it was opened
 
   Scenario: Manual closing of the Sequence listing SVS task
     Given User has claimed SVS task for a dossier
     #dossier can be any type of dossier: EP, PCT, NATS
-    And User opens SVS task
+    And User has opened SVS task
     When User closes SVS task
-    #meaning the user clicks on the option to close the task that appears inside its GUI
-    Then SVS task is not shown in Examination tray
+    #meaning the user clicks on the option to close the task and confirms the confirmation message
+    Then system sets SEQL_status to 'closed'
+    #the status of the SEQL should changed to "closed"
+    And system creates a new entry in History table with today's date, User, 'closed' and MANUALLY_CLOSED comment
+    #final text of MANUALLY_CLOSED is indicated in GUI specifications
+    And system closes SVS task
+    #the task is closed as soon as the user manually closes the task
     #the task disappears from the list of tasks (inbox) and from the right panel where it was opened
-    And SVS task is shown in History tray
-    #the task goes to the History tray
+
+  Scenario: Set task to pending
+    Given User has claimed SVS task for a dossier
+    #dossier can be any type of dossier: EP, PCT, NATS
+    And User has opened SVS task
+    When User enters comment
+    #for a task to be set to pending a comment has to be included by the user
+    And User sets SVS task to pending
+    #meaning the user presses the "Set task to pending" button of the task and confirms the confirmation message
+    Then system unclaims SVS task
+    #the task is not closed (i.e. does not disappears from the list of tasks), but it is displayed in the "Unassigned" folder and the button "Claim" is displayed again
