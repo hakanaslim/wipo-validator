@@ -2,7 +2,7 @@ application:
   name: "wipo-validator"
   component: jar
   image: "wipo-validator-docker"
-  version: set-me-through-deploy-parameters
+  version: "set-me-through-deploy-parameters"
 imageRegistry: containerhub.internal.epo.org:6666
 instance: "{{ .Values.instance }}"
 
