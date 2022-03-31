@@ -4,7 +4,7 @@ version: "1.0.0"
 sources:
   - "https://bitbucket-p.internal.epo.org/projects/BIOT/repos/wipo-validator.git"
 description: "Wipo Validator Helm Chart"
-icon: "https://www.epo.org/favicon.ico"
+icon: https://www.epo.org/favicon.ico
 keywords:
   - "wipo-validator"
   - "docker"
