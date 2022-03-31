@@ -1,9 +1,9 @@
 apiVersion: v1
-name: "svs"
+name: "wipo-validator"
 version: "1.0.0"
 sources:
-  - "https://bitbucket-p.internal.epo.org/scm/biot/svs.git"
-description: "svs-biot"
+  - "https://bitbucket-p.internal.epo.org/scm/biot/wipo-validator.git"
+description: "wipo-validator-biot"
 icon: "https://www.epo.org/favicon.ico"
 keywords:
   - "biot"

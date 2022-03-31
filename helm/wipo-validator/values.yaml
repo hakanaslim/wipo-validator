@@ -1,7 +1,7 @@
 application:
-  name: "svs"
+  name: "wipo-validator"
   component: jar
-  image: "svs-docker"
+  image: "wipo-validator-docker"
   version: set-me-through-deploy-parameters
 imageRegistry: containerhub.internal.epo.org:6666
 instance: "{{ .Values.instance }}"

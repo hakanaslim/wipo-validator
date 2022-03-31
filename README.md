@@ -15,7 +15,7 @@ page in Confluence.
 If you want to simply **clone this empty repository** then run this command in your terminal.
 
 ````
-git clone ssh://git@bitbucket-p.internal.epo.org:7999/biot/svs.git
+git clone ssh://git@bitbucket-p.internal.epo.org:7999/biot/wipo-validator.git
 ````
 
 If you already have **code ready to be pushed** to this repository then run this in your terminal.
@@ -23,7 +23,7 @@ If you already have **code ready to be pushed** to this repository then run this
 ````
 cd existing-project
 git init
-git remote add origin ssh://git@bitbucket-p.internal.epo.org:7999/biot/svs.git
+git remote add origin ssh://git@bitbucket-p.internal.epo.org:7999/biot/wipo-validator.git
 git pull origin master
 git add --all
 git commit -m "Initial Commit"
@@ -39,7 +39,7 @@ If your **code is already tracked by Git** then
 
 ````
 cd existing-project
-git remote set-url origin ssh://git@bitbucket-p.internal.epo.org:7999/biot/svs.git
+git remote set-url origin ssh://git@bitbucket-p.internal.epo.org:7999/biot/wipo-validator.git
 git push -u --force origin master
 ````
 
@@ -49,9 +49,9 @@ Update SCM section in POM by copy/pasting the fragment below.
 
 ````
 <scm>
-    <connection>scm:git:ssh://git@bitbucket-p.internal.epo.org:7999/biot/svs.git</connection>
-    <developerConnection>scm:git:ssh://git@bitbucket-p.internal.epo.org:7999/biot/svs.git</developerConnection>
-    <url>https://bitbucket-p.internal.epo.org/projects/BIOT/repos/svs</url>
+    <connection>scm:git:ssh://git@bitbucket-p.internal.epo.org:7999/biot/wipo-validator.git</connection>
+    <developerConnection>scm:git:ssh://git@bitbucket-p.internal.epo.org:7999/biot/wipo-validator.git</developerConnection>
+    <url>https://bitbucket-p.internal.epo.org/projects/BIOT/repos/wipo-validator</url>
     <tag>master</tag>
 </scm>
 ````
