@@ -1,0 +1,13 @@
+apiVersion: v1
+name: "wipo-validator"
+version: "1.0.0"
+sources:
+  - "https://bitbucket-p.internal.epo.org/scm/biot/wipo-validator.git"
+description: "wipo-validator-biot"
+icon: "https://www.epo.org/favicon.ico"
+keywords:
+  - "biot"
+maintainers:
+  - name: "FlorinPinta"
+    email: "ppinta.external@epo.org"
+

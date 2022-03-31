@@ -1,0 +1,22 @@
+application:
+  name: "wipo-validator"
+  component: jar
+  image: "wipo-validator-docker"
+  version: set-me-through-deploy-parameters
+imageRegistry: containerhub.internal.epo.org:6666
+instance: "{{ .Values.instance }}"
+
+k8s:
+  clusterName: "set-me-through-deploy-parameters"
+  host: "set-me-through-deploy-parameters"
+
+resources:
+  requests:
+    cpu: "100m"
+    memory: "512Mi"
+  limits:
+    cpu: '1'
+    memory: "1024Mi"
+replicas:
+  min: 1
+
