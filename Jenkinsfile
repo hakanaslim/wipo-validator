@@ -2,10 +2,6 @@
 pipelineBuild {
 
 
-  staticAnalysis = [
-    enabled: [       ]
-  ]
-
   docker = [
      imageName: "wipo-validator-docker",
      dir: "docker",
