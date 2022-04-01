@@ -1,6 +1,7 @@
 @Library('epo-shared-jenkins-library@1.9.4-K8')_
 pipelineBuild {
 
+
   docker = [
      imageName: "wipo-validator-docker",
      dir: "docker",
@@ -24,20 +25,22 @@ pipelineBuild {
                     clusterName   : 'endurance',
                     instance      : "test",
                     targetRevision: '${env.GIT_COMMIT}',
-                    helmParameters: ['application.version=${env.PROJECT_VERSION}']
+                    helmParameters: ['application.version=${env.PROJECT_VERSION}'],
+                    modify : ['wipo-validator' : HELM_INSTANCE_UPDATE]
             ],
             'develop': [
                     clusterName   : 'endurance',
                     instance      : "develop",
                     targetRevision: '${env.GIT_COMMIT}',
-                    helmParameters: ['application.version=${env.PROJECT_VERSION}']
+                    helmParameters: ['application.version=${env.PROJECT_VERSION}'],
+                    modify : ['wipo-validator' : HELM_INSTANCE_UPDATE]
             ]
           ]
       ]
   ]
 
 contacts = [
-      email:  'ppinta.external@epo.org, ${env.LAST_COMMIT_AUTHOR_EMAIL}'
+      email:  'slarie.external@epo.org, ${env.LAST_COMMIT_AUTHOR_EMAIL}'
   ]
 }
 
