@@ -1,4 +1,5 @@
-@Library('epo-shared-jenkins-library@1.9.4-K8')_
+@Library('epo-shared-jenkins-library@1.11.13-K8')_
+import static org.epo.cbdp.jenkins.deploy.YamlTemplates.HELM_INSTANCE_UPDATE
 pipelineBuild {
 
 
