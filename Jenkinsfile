@@ -1,6 +1,17 @@
 @Library('epo-shared-jenkins-library@1.9.4-K8')_
 pipelineBuild {
 
+
+  staticAnalysis = [
+    enabled: [
+       failOnSonarQube : false,
+       whitesource : [
+       projectName : "BIOT - wipo-validator",
+       projectType : 'internal'
+       ]
+       ]
+  ]
+
   docker = [
      imageName: "wipo-validator-docker",
      dir: "docker",
@@ -11,15 +22,14 @@ pipelineBuild {
         publish : true
   	]
 
-  staticAnalysis = [
-    enabled: []
-  ]
-
   deployments = [
       namespace : "biot",
       managed : [
           gitRepo      : 'ssh://git@bitbucket-p.internal.epo.org:7999/kd/biot.git',
           valuesPath   : 'wipo-validator',
+          modify : [
+                      'wipo-validator' : HELM_INSTANCE_UPDATE
+                    ],
           branches: [
             'master': [
                     clusterName   : 'endurance',
