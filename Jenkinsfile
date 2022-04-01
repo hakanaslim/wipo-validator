@@ -6,7 +6,9 @@ pipelineBuild {
      imageName: "wipo-validator-docker",
      dir: "docker",
   ]
-
+ staticAnalysis = [
+    enabled: [       ]
+  ]
   helm = [
         dir: 'helm/wipo-validator',
         publish : true
