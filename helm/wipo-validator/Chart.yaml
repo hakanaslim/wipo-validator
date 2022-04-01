@@ -11,6 +11,6 @@ keywords:
   - "kubernetes"
   - "helm"
 maintainers:
-  - name: "FlorinPinta"
-    email: "ppinta.external@epo.org"
+  - name: "Stefan Laerie"
+    email: "slarie.external@epo.org"
 
