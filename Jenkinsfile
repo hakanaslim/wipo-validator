@@ -1,17 +1,6 @@
 @Library('epo-shared-jenkins-library@1.9.4-K8')_
 pipelineBuild {
 
-
-  staticAnalysis = [
-    enabled: [
-       failOnSonarQube : false,
-       whitesource : [
-       projectName : "BIOT - wipo-validator",
-       projectType : 'internal'
-       ]
-       ]
-  ]
-
   docker = [
      imageName: "wipo-validator-docker",
      dir: "docker",
