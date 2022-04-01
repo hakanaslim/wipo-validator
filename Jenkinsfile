@@ -3,13 +3,7 @@ pipelineBuild {
 
 
   staticAnalysis = [
-    enabled: [
-       failOnSonarQube : false,
-       whitesource : [
-       projectName : "BIOT - wipo-validator",
-       projectType : 'internal'
-       ]
-       ]
+    enabled: [       ]
   ]
 
   docker = [
