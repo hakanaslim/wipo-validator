@@ -3,7 +3,7 @@ application:
   component: jar
   image: "wipo-validator-docker"
   version: "set-me-through-deploy-parameters"
-imageRegistry: containerhub.internal.epo.org:6666
+imageRegistry: "containerhub.internal.epo.org:6666"
 instance: "{{ .Values.instance }}"
 
 k8s:
