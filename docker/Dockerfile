@@ -5,17 +5,17 @@ RUN addgroup --system javauser && \
     adduser -S -s /bin/false -G javauser javauser && \
     mkdir /app && \
     chown -R javauser:javauser /app && \
-    mkdir -p /temp/ST26/inbox && \
-    mkdir -p /temp/ST26/process/full && \
-    mkdir -p /temp/ST26/process/formality && \
-    mkdir -p /temp/ST26/outbox && \
-    mkdir -p /temp/ST26/reports && \
-    mkdir -p /temp/ST26/params && \
+    mkdir -p /temp/st26/inbox && \
+    mkdir -p /temp/st26/process/full && \
+    mkdir -p /temp/st26/process/formality && \
+    mkdir -p /temp/st26/outbox && \
+    mkdir -p /temp/st26/reports && \
+    mkdir -p /temp/st26/params && \
     chown -R javauser:javauser /temp
 
 ADD --chown=javauser:javauser resources/*.jar /app/app.jar
-ADD --chown=javauser:javauser resources/example/*.xml /temp/ST26/inbox/
-ADD --chown=javauser:javauser resources/example/*.txt /temp/ST26/inbox/
+ADD --chown=javauser:javauser resources/example/*.xml /temp/st26/inbox/
+ADD --chown=javauser:javauser resources/example/*.txt /temp/st26/inbox/
 
 
 WORKDIR /app
