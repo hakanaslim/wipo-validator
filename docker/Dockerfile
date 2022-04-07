@@ -14,6 +14,9 @@ RUN addgroup --system javauser && \
     chown -R javauser:javauser /temp
 
 ADD --chown=javauser:javauser resources/*.jar /app/app.jar
+ADD --chown=javauser:javauser resources/example/*.xml /temp/ST26/inbox/
+ADD --chown=javauser:javauser resources/example/*.txt /temp/ST26/inbox/
+
 
 WORKDIR /app
 ENV SERVER_PORT=8080 \
