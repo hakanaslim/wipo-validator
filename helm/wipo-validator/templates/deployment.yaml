@@ -36,7 +36,10 @@ spec:
             port: 8080
           initialDelaySeconds: 150
           periodSeconds: 5
+        volumeMounts:
+          - name: wipo-storage
+            mauntPath: "/temp/st26/inbox"
       volumes:
-      - name: storage
+      - name: wipo-storage
         persistentVolumeClaim:
           claimName: {{ include "application.name" . }}-{{ .Release.Namespace }}
