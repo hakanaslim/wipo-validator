@@ -14,6 +14,9 @@ spec:
     metadata:
       {{- include "helper.labels" . | nindent 6 }}
     spec:
+      securityContext:
+        runAsUser: javauser
+        fsGroup: javauser
       containers:
       - name: {{ .Values.application.name }}-{{ .Release.Namespace }}
         image: {{ .Values.imageRegistry }}/{{ .Values.application.image }}:{{ .Values.application.version }}
