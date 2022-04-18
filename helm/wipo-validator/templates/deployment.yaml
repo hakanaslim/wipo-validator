@@ -14,9 +14,6 @@ spec:
     metadata:
       {{- include "helper.labels" . | nindent 6 }}
     spec:
-      securityContext:
-        runAsUser: 100
-        fsGroup: 101
       containers:
       - name: {{ .Values.application.name }}-{{ .Release.Namespace }}
         image: {{ .Values.imageRegistry }}/{{ .Values.application.image }}:{{ .Values.application.version }}
