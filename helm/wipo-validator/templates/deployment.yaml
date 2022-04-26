@@ -37,14 +37,9 @@ spec:
           initialDelaySeconds: 150
           periodSeconds: 5
         volumeMounts:
-          - name: wipo-storage-inbox
+          - name: wipo-storage
             mountPath: "/temp/st26/inbox"
-          - name: wipo-storage-reports
-            mountPath: "/temp/st26/reports/"
       volumes:
-      - name: wipo-storage-inbox
+      - name: wipo-storage
         persistentVolumeClaim:
-          claimName: "{{ .Values.application.name }}-inbox-{{ .Release.Namespace }}"
-      - name: wipo-storage-reports
-        persistentVolumeClaim:
-          claimName: "{{ .Values.application.name }-reports-{{ .Release.Namespace }}"
+          claimName: {{ include "application.name" . }}-{{ .Release.Namespace }}
