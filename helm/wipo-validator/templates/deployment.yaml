@@ -39,12 +39,7 @@ spec:
         volumeMounts:
           - name: wipo-storage
             mountPath: "/temp/st26/inbox"
-          - name: wipo-storage-reports
-            mountPath: "/temp/st26/reports"
       volumes:
-      - name: wipo-storage-reports
-        persistentVolumeClaim:
-          claimName: "{{ .Values.application.name }}-reports-{{ .Release.Namespace }}"
       - name: wipo-storage
         persistentVolumeClaim:
-          claimName: { { include "application.name" . } }-{{ .Release.Namespace }}
+          claimName: {{ include "application.name" . }}-{{ .Release.Namespace }}
