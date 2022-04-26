@@ -39,10 +39,8 @@ spec:
         volumeMounts:
           - name: wipo-storage
             mountPath: "/temp/st26/inbox"
-            subPath: "inbox"
           - name: wipo-storage
             mountPath: "/temp/st26/reports"
-            subPath: "reports"
       volumes:
       - name: wipo-storage
         persistentVolumeClaim:
