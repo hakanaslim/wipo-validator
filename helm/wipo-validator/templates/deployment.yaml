@@ -42,4 +42,4 @@ spec:
       volumes:
       - name: wipo-storage-inbox
         persistentVolumeClaim:
-          claimName: {{ include "application.name" . }}-inbox-{{ .Release.Namespace }}
+          claimName: "{{ .Values.application.name }}-inbox-{{ .Release.Namespace }}"
