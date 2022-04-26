@@ -38,7 +38,7 @@ spec:
           periodSeconds: 5
         volumeMounts:
           - name: wipo-storage
-            mountPath: "/temp/st26/inbox"
+            mountPath: "/temp/st26/"
       volumes:
       - name: wipo-storage
         persistentVolumeClaim:
