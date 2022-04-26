@@ -10,7 +10,7 @@ k8s:
   clusterName: "set-me-through-deploy-parameters"
   host: "set-me-through-deploy-parameters"
 
-subfolders:
+subdirectories:
   inbox: inbox
   reporsts: reports
 

@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: "{{ .Values.application.name }}-{{ .Values.subfolders.reports }}-{{ .Release.Namespace }}"
+  name: "{{ .Values.application.name }}-{{ .Values.subdirectories.reports }}-{{ .Release.Namespace }}"
 spec:
   accessModes:
     - ReadWriteMany
