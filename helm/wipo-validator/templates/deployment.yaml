@@ -44,7 +44,7 @@ spec:
       volumes:
       - name: wipo-storage-reports
         persistentVolumeClaim:
-          claimName: "{{ .Values.application.name }}-{{ .Values.subfolders.inbox }}-{{ .Release.Namespace }}"
+          claimName: "{{ .Values.application.name }}-{{ .Values.subfolders.reports }}-{{ .Release.Namespace }}"
       - name: wipo-storage-inbox
         persistentVolumeClaim:
-          claimName: "{{ .Values.application.name }}-{{ .Values.subfolders.reports }}-{{ .Release.Namespace }}"
+          claimName: "{{ .Values.application.name }}-{{ .Values.subfolders.inbox }}-{{ .Release.Namespace }}"
