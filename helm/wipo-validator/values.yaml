@@ -10,6 +10,10 @@ k8s:
   clusterName: "set-me-through-deploy-parameters"
   host: "set-me-through-deploy-parameters"
 
+subfolders:
+  inbox: inbox
+  reporsts: reporsts
+
 resources:
   requests:
     cpu: "100m"
