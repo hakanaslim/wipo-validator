@@ -12,7 +12,7 @@ k8s:
 
 subfolders:
   inbox: inbox
-  reporsts: reporsts
+  reporsts: reports
 
 resources:
   requests:
